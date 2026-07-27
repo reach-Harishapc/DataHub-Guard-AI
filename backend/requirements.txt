@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+acryl-datahub
+openai
+PyGithub
+python-dotenv
+pydantic
+pydantic-settings

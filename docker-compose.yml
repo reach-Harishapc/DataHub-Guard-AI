@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-mock_key}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - DATAHUB_GMS_URL=${DATAHUB_GMS_URL:-http://localhost:8080}
+      - DATAHUB_TOKEN=${DATAHUB_TOKEN}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      # Docker internal networking is available at backend:8000, 
+      # but NEXT_PUBLIC_API_URL is used by the browser, so it MUST route to localhost:8000
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+    depends_on:
+      - backend
+    restart: unless-stopped

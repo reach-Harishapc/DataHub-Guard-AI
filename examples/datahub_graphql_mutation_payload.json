@@ -1,0 +1,7 @@
+{
+  "query": "mutation addTag($urn: String!, $tagUrn: String!) { addTag(input: { resourceUrn: $urn, tagUrn: $tagUrn }) }",
+  "variables": {
+    "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,analytics.prod.downstream_dashboard_table,PROD)",
+    "tagUrn": "urn:li:tag:DownstreamImpacted"
+  }
+}

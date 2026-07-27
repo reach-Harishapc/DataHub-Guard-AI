@@ -1,0 +1,6 @@
+{
+  "dataset_urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,analytics.prod.orders,PROD)",
+  "error_message": "SQL compilation error: error line 14 at position 5\ninvalid identifier 'O.PAYMENT_STATUS'",
+  "pipeline_id": "airflow_daily_orders_pipeline",
+  "execution_timestamp": "2026-07-27T08:00:00Z"
+}
