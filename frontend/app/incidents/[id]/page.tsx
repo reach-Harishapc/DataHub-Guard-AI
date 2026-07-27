@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2, GitPullRequest, CheckCircle, Send, Hash, MessageSquare, X } from "lucide-react";
 import LineageGraph from "@/components/LineageGraph";
 import CodeDiff from "@/components/CodeDiff";
-import { LogOut, ShieldAlert } from "lucide-react";
+import { LogOut, ShieldAlert, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 
@@ -116,9 +116,14 @@ export default function IncidentDetail() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans">
       <header className="px-8 py-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between sticky top-0 z-10">
-        <div className="flex items-center gap-2">
-          <ShieldAlert className="w-6 h-6 text-blue-600 dark:text-blue-500" />
-          <span className="font-bold text-lg text-slate-900 dark:text-white">DataHub Guard AI</span>
+        <div className="flex items-center gap-4">
+          <Button variant="ghost" size="icon" onClick={() => router.push("/dashboard")} className="text-slate-500 hover:text-slate-900">
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <div className="flex items-center gap-2 border-l pl-4 border-slate-200">
+            <ShieldAlert className="w-6 h-6 text-blue-600 dark:text-blue-500" />
+            <span className="font-bold text-lg text-slate-900 dark:text-white">DataHub Guard AI</span>
+          </div>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-sm font-medium text-slate-500">demo@datahubguard.ai</span>
